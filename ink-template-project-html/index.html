@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+
+    <title>Ink Template Project</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+	<audio id="monster">
+	<source src="./sfx/monster.wav" type="audio/wav">
+	Your browser does not support the audio element.
+	</audio>
+	<audio id="shield">
+	<source src="./sfx/shield.wav" type="audio/wav">
+	Your browser does not support the audio element.
+	</audio>
+	<audio id="sword">
+	<source src="./sfx/sword.wav" type="audio/wav">
+	Your browser does not support the audio element.
+	</audio>
+
+	<!-- On affiche la page sous forme d'une table de 2 lignes -->
+	<!-- Une ligne pour le menu -->
+	<div class="headerRow">
+		<input
+			title="Héros"
+			type="image"
+			id="knight"
+			class="icon-inventory"
+			src="images/knight.png"
+			onClick=""
+			tabindex="1"
+			style="margin-top: 10px;display: inline-block;"
+		/>
+		<input
+			title="Epée"
+			type="image"
+			id="epee"
+			class="icon-inventory"
+			src="images/epee.png"
+			onClick=""
+			tabindex="1"
+			style="margin-top: 10px;display: none;"
+		/>
+		<input
+			title="Bouclier"
+			type="image"
+			id="bouclier"
+			class="icon-inventory"
+			src="images/bouclier.png"
+			onClick=""
+			tabindex="1"
+			style="margin-top: 10px;display: none;"
+		/>
+		<input
+			title="Monstre"
+			type="image"
+			id="monstre"
+			class="icon-inventory"
+			src="images/monster.png"
+			onClick=""
+			tabindex="1"
+			style="margin-top: 10px;display: none;"
+		/>
+	</div>
+
+	<!-- Une ligne pour l'affichage de la story Ink -->
+	<div class="bodyRow">
+		<div class="outerContainer">
+			<!-- Les attributs aria servent à gérer les lecteurs d'écran -->
+			<div id="story" class="container" aria-live="polite" aria-atomic="false" aria-relevant="additions">
+				<div class="header">
+					<h1>Ink Template Project</h1>
+					<h2 class="byline"></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script src="ink.js"></script>
+    <script src="ink-template-project.js"></script>
+    <script src="main.js"></script>
+	
+	<script>
+		// Joue le son correspondant au soundId donné en paramètre.
+		function playSoundById(soundId) {
+			document.getElementById(soundId).play();
+		}
+ 
+	</script>
+</body>
+</html>

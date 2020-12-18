@@ -1,2 +1,3 @@
 # ink-template-project
-Small Ink template Project to demonstrate variable observers and external functions
+
+Un petit template de projet Ink pour montrer l'utilisation des __variable observers__ et des __external functions__ avec Ink et javascript.
