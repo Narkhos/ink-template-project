@@ -1,16 +1,8 @@
-// Déclaration des fonctions externes que l'on retrouve dans main.js
-EXTERNAL playSound(soundId)
-
 LIST inventaire = epee, bouclier
 
 VAR monstre = true
 
 ->Debut
-
-=== function playSound(soundId) ===
-// Usually external functions can only return placeholder
-// results, otherwise they'd be defined in ink!
-Playing Sound {soundId}
 
 ===Debut
 // Modifier une variable dans ink déclenche l'appel de la fonction callback correspondante
@@ -29,12 +21,12 @@ Vous entrez dans le magasin.
 
 + {inventaire !? epee}[Acheter une épée]
     ~inventaire += epee
-    // Appel de la fonction externe playSound(soundId)
-    ~playSound("sword")
+    // Appel de la fonction javascript playSoundById(soundId)
+    # SCRIPT: playSoundById('sword');
     ->choix
 + {inventaire !? bouclier}[Acheter un bouclier]
     ~inventaire += bouclier
-    ~playSound("shield")
+    # SCRIPT: playSoundById('shield');
     ->choix
 +[Partir affronter le monstre]
 ->CombatFinal
@@ -45,7 +37,7 @@ Vous faites face au monstre.
 
 + {inventaire ? epee} [Attaquer]
     Le monstre contre-attaque.
-    {playSound("monster")}
+    # SCRIPT: playSoundById('monster');
 + + [Pointer l'épée vers sa tête]
 	    ~ monstre = false
 	    Le monstre s'effondre. Vous êtes victorieux !
@@ -58,7 +50,7 @@ Vous faites face au monstre.
 	->Magasin
 + [Provoquer]
     Le monstre vous charge.
-    {playSound("monster")}
+    # SCRIPT: playSoundById('monster');
 + + {inventaire ? bouclier} [Bloquer]
     Votre bouclier est détruit.
     ~inventaire -=bouclier

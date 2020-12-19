@@ -4,13 +4,6 @@
     var story = new inkjs.Story(storyContent);
 
     ///////// PARTIE DU CODE AJOUTE PAR RAPPORT AU CODE DE BASE ///////////
-
-    // EXTERNAL FUNCTIONS
-    // Ajouter ici les fonctions externes qui seront ensuite
-    // à déclarer et à appeler dans le fichier .ink
-	story.BindExternalFunction("playSound", function (soundId) {
-			playSoundById(soundId);
-	});
 	
     // VARIABLE OBSERVERS
     // Ajouter ici les variable observer.
@@ -93,6 +86,9 @@
                     showAfter(delay, imageElement);
                     delay += 200.0;
                 }
+				else if (splitTag && splitTag.property == "SCRIPT") {
+					Function('"use strict";' + splitTag.val + ';')();
+				}
 
                 // CLASS: className
                 else if( splitTag && splitTag.property == "CLASS" ) {
